@@ -31,19 +31,28 @@ module.exports = function(grunt) {
           file = file.replace(/ /g,"").replace(/\t/g,"").replace(/\n/g,"");
           var arr = file.split(";");
           var len = arr.length;
-         
-          for (var i = 0; i < len; i++) {
+          
+          var html = "";
+
+          for (var i = 0; i < len -1; i++) {
             var key_val = arr[i].split(":");
             grunt.log.write(key_val[0]);
+            html += makeChip(key_val);
           }
-          
-
-         
-          grunt.file.write(dest,file);
+        
+          grunt.file.write(dest,html);
         }
       });
 
     });
+
+    function makeChip(arr){
+      var html = '<div class="col-lg-2 docs-color">';
+      html += '<div class="docs-color-chip" data-toggle="tooltip" data-placement="top" title="" data-original-title="" style="background-color:'+arr[1]+';"></div>';
+      html += '<p>'+arr[0]+'</p>';
+      html += '</div>';
+      return html;
+    }
 
     function removeComments(str) {
  
