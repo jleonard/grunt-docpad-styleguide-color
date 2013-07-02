@@ -15,18 +15,19 @@ module.exports = function(grunt) {
 
   grunt.registerMultiTask('styleguide-color', 'Your task description goes here.', function() {
 
+    var options = this.options({
+      dest: ''
+    });
+
     this.files.forEach(function(fileObj){
       var files = grunt.file.expand({nonull: true}, fileObj.src);
-      var dest = grunt.option("dest");
+      var dest = options.dest;
       var src = files.map(function(filepath){
         if (!grunt.file.exists(filepath)) {
           
         }else{
           var file = grunt.file.read(filepath);
-          grunt.log.write("Look at this");
-          grunt.log.write(file);
-          grunt.log.write(dest);
-          grunt.log.write(grunt.option);
+         
           grunt.file.write(dest,file);
         }
       });
