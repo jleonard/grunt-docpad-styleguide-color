@@ -49,7 +49,7 @@ module.exports = function(grunt) {
 
     function makeChip(arr){
       var humanName = S(arr[0].replace("@","")).humanize().toLowerCase();
-      var html = '<div class="col-lg-2 docs-color">';
+      var html = '<div class="docs-color">';
       html += '<div class="docs-color-chip" data-toggle="tooltip" data-placement="top" title="" data-original-title="" style="background-color:'+arr[1]+';"><span>'+arr[1]+'</span></div>';
       html += '<p>'+humanName + '<span>'+arr[0]+'</span></p>';
       html += '</div>';
