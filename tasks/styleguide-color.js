@@ -40,7 +40,7 @@ module.exports = function(grunt) {
             //grunt.log.write(key_val[0]);
             html += makeChip(key_val);
           }
-          console.log(html);
+          //console.log(html);
           grunt.file.write(dest,html);
         }
       });
@@ -48,12 +48,12 @@ module.exports = function(grunt) {
     });
 
     function makeChip(arr){
-      var humanName = S(str).humanize().capitalize();
+      var humanName = S(arr[0].replace("@","")).humanize().toLowerCase();
       var html = '<div class="col-lg-2 docs-color">';
       html += '<div class="docs-color-chip" data-toggle="tooltip" data-placement="top" title="" data-original-title="" style="background-color:'+arr[1]+';"><span>'+arr[1]+'</span></div>';
       html += '<p>'+humanName + '<span>'+arr[0]+'</span></p>';
       html += '</div>';
-      console.log(humanName);
+      //console.log(humanName);
       return html;
     }
 
